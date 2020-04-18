@@ -1,2 +1,2 @@
-UDP anycast, broadcast and multicast
+UDP unicast, broadcast and multicast
 -------------
