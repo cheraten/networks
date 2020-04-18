@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ReceiveMulticastUDP extends Thread {
-    private Map<String, Long> hosts = new HashMap<String, Long>();
     private static String group = "225.4.5.6";
     private static int port = 4445;
     private static byte[] buf = new byte[256];
@@ -24,9 +23,6 @@ public class ReceiveMulticastUDP extends Thread {
 
                 String message = new String(pack.getData(), 0, pack.getLength());
                 System.out.println("Received multicast message: " + message);
-                if (message.equals("multi hi!")) {
-                    hosts.put(pack.getAddress().getHostAddress(), System.currentTimeMillis());
-                }
             }
             socket.leaveGroup(InetAddress.getByName(group));
             socket.close();
